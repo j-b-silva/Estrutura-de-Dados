@@ -110,9 +110,27 @@ function LinkedList(){
        let current = head;
        let string = ' ';
        while (current){
-        string += current.element + (current.next ? '->': ' ');
+        string += current.element + (current.next ? ' -> ': ' ');
         current = current.next;
        }
        return string;
     };
 };
+
+let listaEncadeada = new LinkedList();
+
+console.log("A lista 1 encadeada possui o conteudo: " + listaEncadeada.toString());
+
+listaEncadeada.append('Luis');
+listaEncadeada.append('Fabiana');
+listaEncadeada.append('Marcos');
+listaEncadeada.append('Gabriel');
+listaEncadeada.append('Victor');
+listaEncadeada.append('Ingrid');
+
+console.log("A lista 2 encadeada possui o conteudo: " + listaEncadeada.toString());
+
+listaEncadeada.insert(3, 'julinha');
+
+console.log("A lista 3 encadeada possui o conteudo: " + listaEncadeada.toString());
+
