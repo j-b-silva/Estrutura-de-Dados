@@ -59,7 +59,7 @@ function LinkedList(){
     
     this.remove = function (element){
        let index = this.indexOf(element);
-       this.removeAt(index);
+       return this.removeAt(index);
     };
     
     this.removeAt = function(position){
@@ -69,10 +69,8 @@ function LinkedList(){
             if(position === 0){
                 head = current.next;
             } else{
-                for(var i=0; i< position; i++){
-                    previous = current;
-                    current.next;
-                }
+                previous = this.getElementAt(position -1);
+                current = previous.next;
                 previous.next = current.next;
             }
             length--;
@@ -128,9 +126,37 @@ listaEncadeada.append('Gabriel');
 listaEncadeada.append('Victor');
 listaEncadeada.append('Ingrid');
 
-console.log("A lista 2 encadeada possui o conteudo: " + listaEncadeada.toString());
+console.log("A lista 2 encadeada possui: " + listaEncadeada.toString());
 
 listaEncadeada.insert(3, 'julinha');
+console.log("A lista 3 encadeada possui: " + listaEncadeada.toString());
 
-console.log("A lista 3 encadeada possui o conteudo: " + listaEncadeada.toString());
+listaEncadeada.insert(0, 'Calliari');
+console.log("A lista 4 encadeada possui: " + listaEncadeada.toString());
+
+listaEncadeada.removeAt(5);
+console.log("A lista 5 encadeada: " + listaEncadeada.toString());
+
+console.log("Iremos remover o: " + listaEncadeada.remove('Luis'))
+console.log("A lista 6 encadeada: " + listaEncadeada.toString());
+
+console.log("A lista encadeada possui " + listaEncadeada.size() + " elementos.");
+
+console.log("O primeiro elemento da lista é: " + listaEncadeada.getHead().element + " que se encontra na posição: " 
++ listaEncadeada.indexOf(listaEncadeada.getHead().element));
+
+listaEncadeada.remove('Calliari'); 
+listaEncadeada.remove('Fabiana');  
+listaEncadeada.remove('Marcos');  
+listaEncadeada.remove('julinha');
+listaEncadeada.remove('Victor');  
+
+console.log('A lista encadeada está vazia? '+ listaEncadeada.isEmpty());  
+console.log('A lista encadeada possui o conteúdo: '+ listaEncadeada.toString());
+
+listaEncadeada.remove('Ingrid');  
+
+console.log('A lista encadeada está vazia? '+ listaEncadeada.isEmpty());    
+console.log('A lista encadeada esvaziada possui '+ listaEncadeada.size()+' elementos');
+
 
